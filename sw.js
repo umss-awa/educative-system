@@ -1,35 +1,23 @@
-self.addEventListener('fetch', event => {
+self.addEventListener('install', e => {
+    const cacheProms = caches.open('cache-sw').then(cache => {
+        return cache.addAll([
+            '/',
+            '/index.html',
+            '/styles/bootstrap.css',
+            '/styles/styles.css',
+            '/scripts/bootstrap.js',
+            '/scripts/jquery-3.5.1.slim.min.js',
+            '/scripts/scripts.js',
+            '/images/burger.png',
+        ]);
+    });
 
-    // offlineResp = new Response(`
+    e.waitUntil(cacheProms);
+});
 
-    //     Bienvenido a la app
-    //     Disculpa las molestias, pero 
-    //     necesitas internet para cargar la app
+self.addEventListener('fetch', e => {
 
-    // `);
-
-    // offlineResp = new Response(`
-    // <!DOCTYPE html>
-    // <html lang="es">
-    // <head>
-    //     <meta charset="UTF-8">
-    //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    //     <title>Classes</title>
-    // </head>
-    // <body>
-    //     <h1>Modo Offline</h1>
-    // </body>
-    // </html>
-    // `, {
-    //     headers: {
-    //         'Content-Type': 'text/html'
-    //     }
-    // });
-
-    const offlineResp = new fetch('pages/offline.html');
-
-    const resp = fetch(event.request).catch(() => offlineResp);
-
-    event.respondWith(resp);
+    // 1 - Cache Only
+    e.respondWith(caches.match(e.request));
 
 });
