@@ -1,20 +1,33 @@
-const CACHE_SW = 'cache-sw';
+const CACHE_STATIC = 'static-v1';
+const CACHE_DYNAMIC = 'dynamic-v1';
+const CACHE_INMUTABLE = 'inmutable-v1';
 
 self.addEventListener('install', e => {
-    const cacheProms = caches.open(CACHE_SW).then(cache => {
+
+    const cacheStatic = caches.open(CACHE_STATIC).then(cache => {
+
         return cache.addAll([
             '/',
             '/index.html',
-            '/styles/bootstrap.css',
-            '/styles/styles.css',
-            '/scripts/bootstrap.js',
-            '/scripts/jquery-3.5.1.slim.min.js',
-            '/scripts/scripts.js',
             '/images/burger.png',
+            '/styles/styles.css',
+            '/scripts/scripts.js'
         ]);
+
     });
 
-    e.waitUntil(cacheProms);
+    const cacheInmutable = caches.open(CACHE_INMUTABLE).then(cache => {
+
+        return cache.addAll([
+            '/styles/bootstrap.min.css',
+            '/scripts/bootstrap.min.js',
+            '/scripts/jquery-3.5.1.slim.min.js'
+        ]);
+
+    });
+
+    e.waitUntil(Promise.all([cacheStatic, cacheInmutable]));
+
 });
 
 self.addEventListener('fetch', e => {
@@ -26,7 +39,7 @@ self.addEventListener('fetch', e => {
 
         return fetch(e.request).then(otherResp => {
 
-            caches.open(CACHE_SW).then(cache => {
+            caches.open(CACHE_DYNAMIC).then(cache => {
 
                 cache.put(e.request, otherResp);
 
