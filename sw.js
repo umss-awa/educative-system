@@ -49,27 +49,26 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', e => {
-    // 2 - Cache with Network Fallback
-    const respuesta = caches.match(e.request).then(resp => {
-        
-        if (resp) return resp;
-        console.log('No existe', e.request.url);
 
-        return fetch(e.request).then(otherResp => {
+    // 3 - Network with cache fallback
 
-            caches.open(CACHE_DYNAMIC).then(cache => {
+    const respNet = fetch(e.request).then(resp => {
 
-                cache.put(e.request, otherResp);
-                clearCache(CACHE_DYNAMIC, 1);
+        if (!resp) return caches.match(e.request);
 
-            });
+        caches.open(CACHE_DYNAMIC).then(cache => {
 
-            return otherResp.clone();
+            cache.put(e.request, resp);
+            clearCache(CACHE_DYNAMIC, 1);
 
         });
 
+        return resp.clone();
+
+    }).catch(error => {
+        return caches.match(e.request);
     });
 
-    e.respondWith(respuesta);
+    e.respondWith(respNet);
 
 });
