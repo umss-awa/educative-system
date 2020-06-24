@@ -1,65 +1,35 @@
-// Ciclo de vida del SW
+self.addEventListener('fetch', event => {
 
-self.addEventListener('install', event => {
+    // offlineResp = new Response(`
 
-    console.log('Instalando SW!!!!!!!');
+    //     Bienvenido a la app
+    //     Disculpa las molestias, pero 
+    //     necesitas internet para cargar la app
 
-    const install = new Promise((resolve, reject) => {
-        
-        setTimeout(() => {
-            console.log('Instalación terminada');
-            self.skipWaiting();
-            resolve();
-        }, 1);
+    // `);
 
-    });
+    // offlineResp = new Response(`
+    // <!DOCTYPE html>
+    // <html lang="es">
+    // <head>
+    //     <meta charset="UTF-8">
+    //     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    //     <title>Classes</title>
+    // </head>
+    // <body>
+    //     <h1>Modo Offline</h1>
+    // </body>
+    // </html>
+    // `, {
+    //     headers: {
+    //         'Content-Type': 'text/html'
+    //     }
+    // });
 
-    
+    const offlineResp = new fetch('pages/offline.html');
 
-    event.waitUntil(install);
+    const resp = fetch(event.request).catch(() => offlineResp);
 
-});
-
-// Cuando el SW toma el cotrol de la app
-
-self.addEventListener('activate', event => {
-    
-    console.log('SW activado y listo para usarse');
-
-});
-
-
-// FETCH: Manejo de peticiones HTTP
-
-self.addEventListener('fetch', event =>  {
-
-    //Aplicar estrategias del cache
-
-    // console.log('SW:', event.request.url);
-
-    // if (event.request.url.includes('https://reqres.in/')) {
-        
-    //     const resp = new Response(`{ok: false, mensaje: 'jajajaja'}`);
-
-    //     event.respondWith(resp);
-
-    // }
-
-});
-
-self.addEventListener('sync', event => {
-
-    console.log('Conexión en linea!!!');
-    console.log(event);
-    console.log(event.tag);
-
-});
-
-
-// PUSH: Manejar las push notifiations
-
-self.addEventListener('push', event => {
-
-    console.log('Notificación recivida');
+    event.respondWith(resp);
 
 });
