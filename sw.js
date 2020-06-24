@@ -1,6 +1,24 @@
-const CACHE_STATIC = 'static-v1';
+const CACHE_STATIC = 'static-v2';
 const CACHE_DYNAMIC = 'dynamic-v1';
 const CACHE_INMUTABLE = 'inmutable-v1';
+
+function clearCache(cacheName, numberItems) {
+
+    caches.open(cacheName).then(cache => {
+
+        return cache.keys().then(keys => {
+
+            if (keys.length > numberItems) {
+                cache.delete(keys[0]).then(
+                    clearCache(cacheName, numberItems)
+                );
+            }
+
+        })
+
+    });
+
+}
 
 self.addEventListener('install', e => {
 
@@ -9,7 +27,7 @@ self.addEventListener('install', e => {
         return cache.addAll([
             '/',
             '/index.html',
-            '/images/burger.png',
+            '/images/wallpaper.jpg',
             '/styles/styles.css',
             '/scripts/scripts.js'
         ]);
@@ -42,6 +60,7 @@ self.addEventListener('fetch', e => {
             caches.open(CACHE_DYNAMIC).then(cache => {
 
                 cache.put(e.request, otherResp);
+                clearCache(CACHE_DYNAMIC, 1);
 
             });
 
