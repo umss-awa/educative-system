@@ -6,66 +6,31 @@
     <title>App Educativa</title>
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-app-pry">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp" aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
-                <img src="images/burger.png" alt="burger-icon" width="30px" height="30px">
-            </button>
-            
-            <a class="navbar-brand" href="#">APP CLASSES</a>
-          
-            <div class="collapse navbar-collapse" id="navbarApp">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Materias</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Tareas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Avisos</a>
-                </li>
-            </div>
-        </nav>
-        <section class="cards m-4 text-center">
-            <a class="card-link" href="">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="text-dark font-weight-bolder">Materias</h5>
-                        <p class="text-secondary">En esta sección usted podrá visualisar todas las materias a la cual está inscrito.</p>
-                    </div>
-                </div>
-            </a>
-            <a class="card-link" href="">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="text-dark font-weight-bolder">Tareas</h5>
-                        <p class="text-secondary">En esta sección usted podrá ver todas las tareas que tiene asignada de todas las materias.</p>
-                    </div>
-                </div>
-            </a>
-            <a class="card-link" href="">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="text-dark font-weight-bolder">Avisos</h5>
-                        <p class="text-secondary">En esta sección usted podrá ver avisos que el profesor les asigne, si esque olvido mensionarlo en clase.</p>
-                    </div>
-                </div>
-            </a>
-            <a class="card-link" href="">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="text-dark font-weight-bolder">Actividades Pendientes</h5>
-                        <p class="text-secondary">En esta sección usted podrá ver si aun no realizó alguna tarea.</p>
-                    </div>
-                </div>
-            </a>
-        </section>
+
+        <div id='component_navbar_student'>
+            <navbar_student></navbar_student>
+            <section class="cards m-4 text-center">
+                <card_student title="Materias" content="En esta seccion se vera las materias"></card_student>
+                <card_student title="Tareas" content="En esta sección usted podrá ver todas las tareas que tiene asignada de todas las materias"></card_student>
+                <card_student title="Avisos" content="En esta sección usted podrá ver avisos que el profesor les asigne, si esque olvido mensionarlo en clase."></card_student>
+                <card_student title="Actividades Pendientes" content="En esta sección usted podrá ver si aun no realizó alguna tarea"></card_student>
+            </section>
+        </div>
+
     </header>
     <script src="scripts/jquery-3.5.1.slim.min.js"></script>
     <script src="scripts/bootstrap.js"></script>
     <script src="scripts/scripts.js"></script>
+    
+    <script src="scripts/vueComponent.js"></script>
+
+    <script src="scripts/index.js" ></script>
 </body>
 </html>
