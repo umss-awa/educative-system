@@ -1,4 +1,5 @@
 <template>
+  <v-container>
     <v-app>
         <v-app-bar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
@@ -16,15 +17,11 @@
             
       <v-spacer></v-spacer>
       
-      
-      <v-btn icon>
-        <v-icon class="hidden-sm-and-down">mdi-bell</v-icon>
-      </v-btn>
-                <v-btn @click="$router.push('/register')" text>Registrarse</v-btn>
-                
+      <v-btn @click="$router.push('/register')" text><v-icon>recent_actors </v-icon> Registrarse</v-btn>
     </v-app-bar>
-            <v-main class="align-center justify-space-between">
+            <v-main class="align-center justify-space-between" >
             <router-view/>
         </v-main>        
     </v-app>
+    </v-container>
 </template>

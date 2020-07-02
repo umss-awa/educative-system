@@ -1,14 +1,14 @@
 <template>
-<div id='card'>
-    <card title="Matematicas" teacher="Enrique Jose" content="chino putita"></card>
-        <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-    <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-    <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-    <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-    <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+ <v-container>
 
-
-</div>
+                <card title="Matematicas" teacher="Enrique Jose" content="chino putita"></card>
+                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
+        
+ </v-container>
 </template>
 <script>
 import card from "../components/Card"

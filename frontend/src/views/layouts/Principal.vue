@@ -6,24 +6,22 @@
       app
     >
       <v-list dense>
-      
-      <v-row align="center" >
-      <v-col cols="6" class="text-center">
-        <v-avatar
-                  size="100px"
-                  class="mx-3"
-                >
-                  <img
-                    src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png"
-                    alt=""
-                  >
-        </v-avatar>
-
-        </v-col>
+        <v-row class="text-center" >
+          <v-col cols="6" >
+            <v-avatar
+                      size="100px"
+                      class="mx-3"
+                    >
+                      <img
+                        src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png"
+                        alt=""
+                      >
+            </v-avatar>
+          </v-col>
         </v-row>
-        <p>ANDRES CASTELLON</p>
+        <p class="text-xs-center"> ANDRES CASTELLON</p>
+        
         <hr/>
-
         
         <template v-for="item in items">
           <v-row
@@ -109,10 +107,7 @@
       
       <v-spacer></v-spacer>
       
-      <v-btn icon>
-        <v-icon>mdi-bell</v-icon>
-      </v-btn>
-      <v-btn @click="$router.push('/')" text>salir</v-btn>  
+      <v-btn @click="$router.push('/')" text> <v-icon>logout</v-icon>salir</v-btn>  
     </v-app-bar>
     <v-main>
       <v-container
