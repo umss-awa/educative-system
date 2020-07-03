@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Materias from '../views/Materias'
+import MateriasDoc from '../components/MateriasDoc'
 import Login from '../components/Login'
 import Register from '../components/Register'
+import SignIn from '../components/SignIn'
 
 Vue.use(VueRouter)
 
@@ -13,6 +15,11 @@ Vue.use(VueRouter)
     component: Materias
   },
   {
+    path: '/docente/materias',
+    name: 'materiasdoc',
+    component: MateriasDoc
+  },
+  {
     path: '/',
     name: 'Login',
     component : Login
@@ -21,6 +28,11 @@ Vue.use(VueRouter)
     path: '/register',
     name: 'Register',
     component: Register
+  },
+  {
+    path: '/login',
+    name: 'SignIn',
+    component : SignIn
   }
 
 

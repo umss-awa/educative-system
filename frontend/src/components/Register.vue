@@ -17,11 +17,11 @@
                 class="pa-4 pt-6">
                   <!-- <v-text-field label="Nombre de Usuario"></v-text-field>-->
                   <v-text-field
-                    v-model="Usuario"
+                    v-model="nombre"
                     :rules="[rules.required]"
                     filled
                     color="#4682B4"
-                    label="Nombre de Usuario"
+                    label="Nombre Completo"
                   ></v-text-field>
                   <!-- <v-text-field label="Email"></v-text-field> -->
                   <v-text-field
@@ -32,6 +32,13 @@
                     label="Correo electronico"
                     type="email"
                    ></v-text-field>
+                   <v-text-field
+                    v-model="Usuario"
+                    :rules="[rules.required]"
+                    filled
+                    color="#4682B4"
+                    label="Nombre de Usuario"
+                  ></v-text-field>
                   <!-- <v-text-field label="Contraseña" type="password"></v-text-field> -->
                     <v-text-field
                         v-model="password"
@@ -46,9 +53,7 @@
                   <!-- <v-text-field label="Confirmar Contraseña" type="password"></v-text-field>  -->
                   <v-btn block color="#4682B4" @click="$router.push('/student/materias')">Registrarse</v-btn>
                   <p></p>
-                    <v-btn block @click="$router.push('/')" text>Ya tengo una cuenta</v-btn>
-
-
+                    <v-btn block @click="$router.push('/login')" text>Ya tengo una cuenta</v-btn>
               </v-form>
               </v-card-text>
             </v-card>
@@ -66,6 +71,7 @@
             email: undefined,
             password: undefined,
             Usuario: undefined,
+            nombre: undefined,
             rules: {
             email: v => (v || '').match(/@/) || 'Ingrese una direccion de correo valida',
             length: len => v => (v || '').length >= len || `Longitud de caracteres no valida, requeridos ${len}`,

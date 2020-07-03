@@ -1,17 +1,10 @@
 <template>
  <v-container>
-
-                <card title="Matematicas" teacher="Enrique Jose" content="chino putita"></card>
-                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-                <card title="Matematicas" teacher="Enrique Jose" content=""></card>
-        
+                <card title="Matematicas" teacher="Enrique Jose" content="chino putita"></card> 
  </v-container>
 </template>
 <script>
-import card from "../components/Card"
+import card from "../components/MateriasDoc"
 export default {
     components:{card},
     created () {

@@ -1,15 +1,14 @@
 <template>
     <v-row dense>
-      
         <v-col cols="12" xl="12" sm="4"
             v-for="(item, i) in materias"
             :key="i"
             >
           <v-card
-            
+          
             dark
           >
-            <v-card-title class="indigo darken-4">
+            <v-card-title class="grey darken-2">
               <v-list-item class="grow">
                 <v-list-item-avatar color="grey darken-3">
                   <v-img
@@ -23,7 +22,7 @@
                 </v-list-item-content>
               </v-list-item>
             </v-card-title>
-            <v-card-subtitle class="indigo darken-4 " >{{item.descripcion}} </v-card-subtitle>
+            <v-card-subtitle class="grey darken-2 " >{{item.descripcion}} </v-card-subtitle>
             <v-card-actions>
                 <v-btn text>ACTIVO</v-btn>
               </v-card-actions>
@@ -64,15 +63,9 @@ import axios from 'axios'
 export default {
     created () {
             this.$store.commit('SET_LAYOUT', 'PrincipalLayout')
-            var array= ["#264653","#14213d","#028090","#f4a261", "#e76f51"];
-      var min = Math.ceil(0);
-      var max = Math.floor(array.length-1);
-      var random= Math.floor(Math.random() * (max - min + 1)) + min;
-      this.color= array[random];
         },
     data: () => ({
         dialog: false,
-        color: null,
         search:'',
         materias:[],
         headers: [

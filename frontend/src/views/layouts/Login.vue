@@ -17,9 +17,9 @@
             
       <v-spacer></v-spacer>
       
-      <v-btn @click="$router.push('/register')" text><v-icon>recent_actors </v-icon> Registrarse</v-btn>
+      <v-btn @click="$router.push('/')" text><v-icon>phonelink </v-icon> | AppEducation</v-btn>
     </v-app-bar>
-            <v-main class="align-center justify-space-between" >
+            <v-main >
             <router-view/>
         </v-main>        
     </v-app>

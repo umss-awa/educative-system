@@ -1,92 +1,182 @@
 <template>
-  <v-container >
-      <v-layout row>
-          <v-flex xs12 sm6 m4 offset-xs0 offset-sm3 offset-m4>
-              <v-container
-        class="fill-height"
-        fluid 
-      >
-        <v-row
-          class="text-center"
-        >
-          <v-col
-            cols="12"
-            sm="12"
-            md="12"
+  <v-container>
+    <v-card
+    class="mx-auto"
+    >
+    <v-container>
+      <v-row dense>
+        <v-col cols="12" xl="12" sm="4">
+          <v-card
+            dark
           >
-            <v-card class="elevation-12">
-              <v-toolbar
-                color="#4682B4"
-                dark
-                flat
+            <v-card-title class="grey darken-2">
+              <v-list-item class="grow">
+                <v-list-item-avatar color="grey darken-3">
+                  <v-img
+                    class="elevation-6"
+                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                  ></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title class="headline">DOCENTES</v-list-item-title>
+                  <hr>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-title>
+
+            <v-card-subtitle class="grey darken-2">Ingreso a la plataforma para cuentas Docentes </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn
+                color="orange"
+                text
+               @click="$router.push('/register')" ><v-icon>contacts </v-icon>
+                REGISTRARSE
+              </v-btn>
+              <v-btn
+                color="orange"
+                text
+                @click="$router.push('/login')" ><v-icon>perm_contact_calendar</v-icon>
+                INGRESAR
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+
+        <v-col cols="12" xl="12" sm="4">
+         <v-card
+            dark
+          >
+            <v-card-title class="teal darken-3">
+              <v-list-item class="grow">
+                <v-list-item-avatar color="grey darken-3">
+                  <v-img
+                    class="elevation-6"
+                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                  ></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title class="headline">PADRES</v-list-item-title>
+                  <hr>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-title>
+
+            <v-card-subtitle class="teal darken-3">Ingreso a la plataforma para cuentas de Padres de familia </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn
+                color="orange"
+                text
+                @click="$router.push('/register')" ><v-icon>contacts </v-icon>
+                REGISTRARSE
+              </v-btn>
+              <v-btn
+                color="orange"
+                text
+                @click="$router.push('/login')" ><v-icon>perm_contact_calendar</v-icon>
+                INGRESAR
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <v-col cols="12" xl="12" sm="4">
+          <v-card
+            dark
+          >
+            <v-card-title class="light-blue darken-4">
+              <v-list-item class="grow">
+                <v-list-item-avatar color="grey darken-3">
+                  <v-img
+                    class="elevation-6"
+                    src="https://avataaars.io/?avatarStyle=Transparent&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=White&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light"
+                  ></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                  <v-list-item-title class="headline">ESTUDIANTES</v-list-item-title>
+                  <hr>
+                </v-list-item-content>
+              </v-list-item>
+            </v-card-title>
+
+            <v-card-subtitle class="light-blue darken-4">Ingreso a la plataforma para cuentas de Estudiantes </v-card-subtitle>
+
+            <v-card-actions>
+              <v-btn
+                color="orange"
+                text
+                @click="$router.push('/register')" ><v-icon>contacts </v-icon>
+                REGISTRARSE
+              </v-btn>
+              <v-btn
+                color="orange"
+                text
+                @click="$router.push('/login')" ><v-icon>perm_contact_calendar</v-icon>
+                INGRESAR
+              </v-btn>
+            </v-card-actions>
+          </v-card>
+        </v-col>
+        <!-- <v-col
+          v-for="(item, i) in items"
+          :key="i"
+          cols="12"
+        > -->
+         <!--  <v-card
+            :color="item.color"
+            dark
+          >
+            <div class="d-flex flex-no-wrap justify-space-between">
+              <div>
+                <v-card-title
+                  class="headline"
+                  v-text="item.title"
+                ></v-card-title>
+
+                <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+              </div>
+
+              <v-avatar
+                class="ma-3"
+                size="125"
+                tile
               >
-                <v-toolbar-title > BIENVENIDO</v-toolbar-title>
-                <v-spacer></v-spacer>   
-              </v-toolbar>
-              <v-card-text>
-                <v-form>
-                  <v-text-field
-                    id="Usuario"
-                    label="Usuario"
-                    name="Usuario"
-                    v-model="Usuario"
-                    :rules="[rules.required]"
-                    filled
-                    color="#4682B4"
-                    prepend-icon="mdi-account"
-                    type="text"
-                  ></v-text-field>
-
-                  <v-text-field
-                    id="Contraseña"
-                    label="Contrasña"
-                    name="Contraseña"
-                    v-model="password"
-                        :rules="[rules.password, rules.length(6)]"
-                        filled
-                        color="#4682B4"
-                        counter="6"
-                    prepend-icon="mdi-lock"
-                    type="password"
-                  ></v-text-field>
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn block color="#4682B4" @click="$router.push('/student/materias')">Entrar</v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-col>
-        </v-row>
-      </v-container>
-
-              <!-- <v-form>
-                  <h1 >BIENVENIDO</h1>
-                  <p></p>
-                  <v-text-field label="Nombre de Usuario"></v-text-field>
-                  <v-text-field label="Contraseña" type="password"></v-text-field>
-                  <v-btn block color="primary" @click="$router.push('/student/materias')">Entrar</v-btn>
-              </v-form> -->
-          </v-flex>
-      </v-layout>
+                <v-img :src="item.src"></v-img>
+              </v-avatar>
+            </div>
+          </v-card> -->
+        <!-- </v-col> -->
+      </v-row>
+    </v-container>
+  </v-card>
   </v-container>
 </template>
+
 <script>
-    export default {
-        created () {
-            this.$store.commit('SET_LAYOUT', 'LoginLayout')
+  export default {
+    /* name: 'HelloWorld', */
+
+    data: () => ({
+      items: [
+        {
+          color: '#1F7087',
+          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
+          title: 'Supermodel',
+          artist: 'Foster the People',
         },
-        data: () => ({
-            email: undefined,
-            password: undefined,
-            Usuario: undefined,
-            rules: {
-            email: v => (v || '').match(/@/) || 'Please enter a valid email',
-            length: len => v => (v || '').length >= len || `Longitud de caracteres no valida, requeridos ${len}`,
-            password: v => (v || '').match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(_|[^\w])).+$/) ||
-                'La contraseña debe contener una letra mayúscula, un carácter numérico y un carácter especial.',
-            required: v => !!v || 'Este campo es requerido',
-            },
-        }),
-    }
+        {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+        },
+        {
+          color: '#952175',
+          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
+          title: 'Halcyon Days',
+          artist: 'Ellie Goulding',
+        },
+      ]
+    }),
+  }
 </script>
