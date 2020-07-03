@@ -3,6 +3,7 @@ import morgan from 'morgan';
 import cors from 'cors';
 import path from 'path';
 import mongoose from 'mongoose';
+import router from './routes';
 
 //Conexion BD2
 const uri = 'mongodb://localhost:27017/BDproyecto';
@@ -20,6 +21,7 @@ app.use(cors());
 app.use(express.json());
 app.use(urlencoded({extended:true}));
 app.use(express.static(path.join( __dirname, 'public')));
+app.use('/api',router)
 
 app.set('port',process.env.PORT || 3000);
  
