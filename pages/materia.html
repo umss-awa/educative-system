@@ -12,23 +12,20 @@
 </head>
 <body>
     
-    <div class="background"></div>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-app-pry">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-app-pry fixed-top">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarApp" 
             aria-controls="navbarApp" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <span class="m-0 text-secondary">MATEMÁTICAS</span>
-            
             <div class="collapse navbar-collapse" id="navbarApp">
                 <ul class="navbar-nav ml-auto mt-2">
                     <li class="nav-item mb-2">
-                        <a class="nav-link text-white" href="/">Inicio</a>
+                        <a class="nav-link text-white" href="../index.html">Materias</a>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link text-white" href="#">Tareas</a>
+                        <a class="nav-link text-white" href="tarea.html">Tareas</a>
                     </li>
                     <li class="nav-item mb-2">
                         <a class="nav-link text-white" href="#">Avisos</a>
@@ -38,41 +35,43 @@
         </nav>
     </header>
 
-    <section class="cards m-4">
-        <a class="card-link" href="">
-            <div class="card">
-                <div class="card-body text-dark p-3">
-                    <h5 class="card-title">Tarea #1</h5>
-                    <p class="card-text">Descripción de la tarea</p>
+    <div class="content">
+        <section class="cards m-3">
+            <a class="card-link" href="tarea.html">
+                <div class="card">
+                    <div class="card-body text-dark p-3">
+                        <h5 class="card-title">Tarea #1</h5>
+                        <p class="card-text">Descripción de la tarea</p>
+                    </div>
+                    <div class="card-footer text-muted p-1 text-center">
+                        2 de Febrero del 2020
+                    </div>
                 </div>
-                <div class="card-footer text-muted p-1 text-center">
-                    2 de Febrero del 2020
+            </a>
+            <a class="card-link" href="tarea.html">
+                <div class="card">
+                    <div class="card-body text-dark p-3">
+                        <h5 class="card-title">Tarea #2</h5>
+                        <p class="card-text">Descripción de la tarea</p>
+                    </div>
+                    <div class="card-footer text-muted p-1 text-center">
+                        4 de Marzo del 2020
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a class="card-link" href="">
-            <div class="card">
-                <div class="card-body text-dark p-3">
-                    <h5 class="card-title">Tarea #2</h5>
-                    <p class="card-text">Descripción de la tarea</p>
+            </a>
+            <a class="card-link" href="tarea.html">
+                <div class="card">
+                    <div class="card-body text-dark p-3">
+                        <h5 class="card-title">Tarea #3</h5>
+                        <p class="card-text">Descripción de la tarea</p>
+                    </div>
+                    <div class="card-footer text-muted p-1 text-center">
+                        15 de Abril del 2020
+                    </div>
                 </div>
-                <div class="card-footer text-muted p-1 text-center">
-                    4 de Marzo del 2020
-                </div>
-            </div>
-        </a>
-        <a class="card-link" href="">
-            <div class="card">
-                <div class="card-body text-dark p-3">
-                    <h5 class="card-title">Tarea #3</h5>
-                    <p class="card-text">Descripción de la tarea</p>
-                </div>
-                <div class="card-footer text-muted p-1 text-center">
-                    15 de Abril del 2020
-                </div>
-            </div>
-        </a>
-    </section>
+            </a>
+        </section>
+    </div>
 
     <script src="../scripts/jquery-3.5.1.slim.min.js"></script>
     <script src="../scripts/bootstrap.min.js"></script>

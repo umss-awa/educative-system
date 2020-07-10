@@ -1,10 +1,50 @@
 body {
     font-family: 'Roboto', sans-serif;
 }
+button:focus {
+    outline: none;
+    box-shadow: none !important;
+}
 
 .bg-app-pry {
     background-color: #1E0172;
 }
 .bg-app-sec {
     background-color: #4000ff;
+}
+
+.content {
+    position: relative;
+    top: 56px;
+}
+@media (min-width: 576px) {
+    .content {
+        top: 72px;
+    }
+}
+
+.btn-add {
+    background-color: transparent;
+    position: fixed;
+    border: 0;
+    padding: 0;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    z-index: 10;
+    font-size: 0;
+}
+.btn-add span {
+    color: #1E0172;
+    font-size: 3rem;
+}
+
+.btn-task {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 0 5px 0 0;
+    color: white;
+}
+.btn-task:hover {
+    color: white;
 }
