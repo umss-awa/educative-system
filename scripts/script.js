@@ -1,3 +1,14 @@
+const url = window.location.href;
+
+let swUrl = '/classes/sw.js'
+
+
 if (navigator.serviceWorker) {
-    navigator.serviceWorker.register('/sw.js');
+
+    if (url.includes('localhost')) {
+        swUrl = '/sw.js'
+    }
+
+    navigator.serviceWorker.register(swUrl);
+
 }
