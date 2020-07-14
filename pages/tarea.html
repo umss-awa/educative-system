@@ -51,12 +51,23 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        ...
+                        <label for="uploadFileInput" class="w-100 h-100 m-0 text-center">
+                            <div class="btn border border-info d-inline-flex pt-0 pb-0">
+                                <span class="material-icons col-form-label">add</span>
+                                <span class="col-form-label">Agregar Archivo</span>
+                            </div>
+                            <button class="btn border border-danger pt-0 pb-0" id="deleteAllTasks">
+                                <span class="material-icons col-form-label">delete_sweep</span>
+                            </button>
+                        </label>
+                        <input type="file" id="uploadFileInput" class="d-none">
+                        <div class="content-task mt-3"></div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn border border-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn bg-app-pry text-white">Enviar</button>
+                        <button type="button" class="btn bg-app-pry text-white" id="btnSubmitFile">Enviar</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -80,6 +91,7 @@
     <script src="../scripts/jquery-3.5.1.slim.min.js"></script>
     <script src="../scripts/bootstrap.min.js"></script>
     <script src="../scripts/script.js"></script>
+    <script src="../scripts/task.js"></script>
 
 </body>
 </html>

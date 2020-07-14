@@ -57,18 +57,20 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
 
-    const res = caches.match(e.request).then(res => {
-        if (res) {
-            return res;
-        } else {
-            
-            return fetch(e.request).then(newRes => {
-                return updateCache(DYNAMIC_CACHE, e.request, newRes);
-            });
-
-        }
-    });
-
-    e.respondWith(res);
+    if (e.request.url.indexOf('firestore.googleapis.com') === -1) {
+        const res = caches.match(e.request).then(res => {
+            if (res) {
+                return res;
+            } else {
+                
+                return fetch(e.request).then(newRes => {
+                    return updateCache(DYNAMIC_CACHE, e.request, newRes);
+                });
+    
+            }
+        }).catch(error => console.log('No se encontro conexion a internet, error en peticiones firebase'));
+    
+        e.respondWith(res);
+    }
 
 });
