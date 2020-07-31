@@ -5,12 +5,12 @@ const DYNAMIC_CACHE     = 'dynamic-v1';
 const INMUTABLE_CACHE   = 'inmutable-v1';
 
 const APP_SHELL_STATIC = [
-    '/',
     'index.html',
-    'pages/tarea.html',
     'styles/style.css',
     'scripts/script.js',
-    'pages/materia.html',
+    'scripts/ui.js',
+    'scripts/db.js',
+    'scripts/firebase-config.js',
     'images/favicon.ico',
     'scripts/sw-utils.js',
     'images/icons/android-icon-36.png',
