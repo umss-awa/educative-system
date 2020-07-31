@@ -9,7 +9,7 @@ db.enablePersistence()
         }
     });
 
-db.collection('materias').onSnapshot(snaphot => {
+db.collection('alumno').onSnapshot(snaphot => {
     snaphot.docChanges().forEach(change => {
         
         if (change.type === 'added') {
