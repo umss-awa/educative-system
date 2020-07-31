@@ -90,6 +90,33 @@ $('.cards-subject').on('click', '.card-header', e => {
         .then(doc => {
             openTask(doc.data());
         }).catch(error => {
-            console.log("Error getting document:", error);
+            console.log('Error al obtener datos:', error);
+        });;
+});
+
+$('.cards-classes').on('click', '.card-header', e => {
+    db.collection('tareas').where('materia', '==', e.target.id)
+        .get()
+        .then(snaphot => {
+            removeElementsTask();
+            snaphot.forEach(doc => {
+                if (doc.exists) {
+                    paintTaskSelected(doc.id, doc.data());
+                } else {
+                    console.log('La materia seleccionada aun no contiene tareas');
+                }
+            });
+        }).catch(error => {
+            console.log('Error al obtener datos:', error);
+        });;
+});
+
+$('.cards-subject-selected').on('click', '.card-selected .card .card-header', e => {
+    db.collection('tareas').doc(e.target.id)
+        .get()
+        .then(doc => {
+            openTask(doc.data());
+        }).catch(error => {
+            console.log('Error al obtener datos:', error);
         });;
 });

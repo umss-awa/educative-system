@@ -17,6 +17,26 @@ const paintTask = (id, data) => {
     $('.cards-subject').append(task);
 }
 
+const paintTaskSelected = (id, data) => {
+    let task = `
+    <div class="card mb-3">
+        <div class="btn card-header text-center pt-2 pb-2" id="${id}">
+            ${data.titulo}
+        </div>
+        <div class="card-body text-dark p-2">
+            <p class="card-text">${subString(data.descripcion)}</p>
+        </div>
+        <div class="card-footer text-muted p-1 text-center">
+            ${data.limite.toDate().toDateString()}
+            ${data.limite.toDate().toLocaleTimeString('it-IT')}
+        </div>
+    </div>`;
+
+    $('.cards-subject-selected .card-selected').append(task);
+}
+
+
+
 const subString = (cadena) => {
     if (cadena.length > 50)
         return cadena.substr(0, 50) + '...';
@@ -52,6 +72,14 @@ function hideElementsHome(bool) {
     }
 }
 
+function removeElementsTask() {
+    hideElementsHome(true);
+    $('.cards-subject-selected').removeClass('d-none');
+    $('.cards-subject-selected div').remove();
+    $('.cards-subject-selected').append('<div class="card-selected"></div>');
+    $('.navbar-collapse').collapse('hide');
+}
+
 function hideElementsSubject(bool) {
     if (bool) {
         $('.cards-subject').addClass('d-none');
@@ -71,9 +99,11 @@ function hideElementsTask(bool) {
 }
 
 $('#home').on('click', () => {
+
     hideElementsHome(false);
     hideElementsSubject(true);
     hideElementsTask(true);
+    $('.cards-subject-selected').addClass('d-none');
     $('.navbar-collapse').collapse('hide');
 });
 
@@ -81,14 +111,20 @@ $('#tasks').on('click', () => {
     hideElementsHome(true);
     hideElementsSubject(false);
     hideElementsTask(true);
+    $('.cards-subject-selected').addClass('d-none');
     $('.navbar-collapse').collapse('hide');
 });
 
 function openTask(data) {
     $('.task').remove();
     $('.content').append('<section class="task m-3 d-none"></section>');
+    $('.cards-subject-selected').addClass('d-none');
     hideElementsSubject(true);
     hideElementsTask(false);
+
+    if (data.entregado) $('.fixed-bottom .btn').prop('disabled', true);
+    else $('.fixed-bottom .btn').prop('disabled', false);
+
     let task = `
     <h3 class="mb-3 text-center">${data.titulo}</h3>
     <h6 class="mb-3">Fecha de entrega:
@@ -101,6 +137,7 @@ function openTask(data) {
     $('.task').append(task);
 }
 
+// Seccion para seleccionar un archivo para subir la tarea
 let tasks = [];
 
 $('#btnSubmitFile').on('click', () => {
