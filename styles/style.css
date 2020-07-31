@@ -48,3 +48,8 @@ button:focus {
 .btn-task:hover {
     color: white;
 }
+
+.card-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+}

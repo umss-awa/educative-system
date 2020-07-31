@@ -28,48 +28,94 @@
             <div class="collapse navbar-collapse" id="navbarApp">
                 <ul class="navbar-nav ml-auto mt-2">
                     <li class="nav-item mb-2">
-                        <a class="nav-link text-white" href="pages/tarea.html">Tareas</a>
+                        <span class="btn d-block text-white" id="home">Materias</span>
                     </li>
                     <li class="nav-item mb-2">
-                        <a class="nav-link text-white" href="#">Avisos</a>
+                        <span class="btn d-block text-white" id="tasks">Tareas</span>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <span class="btn d-block text-white">Avisos</span>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <div class="modal fade" id="subjectModal" tabindex="-1" role="dialog" aria-labelledby="subjectModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header bg-app-pry text-white">
-                        <h5 class="modal-title" id="subjectModalLabel">Unirse a una Materia</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span class="text-white" aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="subjectForm">
-                            <label class="d-block"><span class="font-weight-bold">Código de la Materia:</span>
-                                <input type="text" id="subjectId" class="form-control" autocomplete="off" quired>
-                            </label>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn border border-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn bg-app-pry text-white" form="subjectForm">Unirse</button>
-                    </div>
-                    
+    <div class="modal fade" id="taskModal" tabindex="-1" role="dialog" aria-labelledby="taskModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-app-pry text-white">
+                    <h5 class="modal-title" id="taskModalLabel">Tarea</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">&times;</span>
+                    </button>
                 </div>
+                <div class="modal-body">
+                    <label for="uploadFileInput" class="w-100 h-100 m-0 text-center">
+                        <div class="btn border border-info d-inline-flex pt-0 pb-0">
+                            <span class="material-icons col-form-label">add</span>
+                            <span class="col-form-label">Agregar Archivo</span>
+                        </div>
+                        <button class="btn border border-danger pt-0 pb-0" id="deleteAllTasks">
+                            <span class="material-icons col-form-label">delete_sweep</span>
+                        </button>
+                    </label>
+                    <input type="file" id="uploadFileInput" class="d-none">
+                    <div class="content-task mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn border border-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn bg-app-pry text-white" id="btnSubmitFile">Enviar</button>
+                </div>
+                
             </div>
         </div>
+    </div>
+
+    <div class="modal fade" id="subjectModal" tabindex="-1" role="dialog" aria-labelledby="subjectModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-app-pry text-white">
+                    <h5 class="modal-title" id="subjectModalLabel">Unirse a una Materia</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span class="text-white" aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="subjectForm">
+                        <label class="d-block"><span class="font-weight-bold">Código de la Materia:</span>
+                            <input type="text" id="subjectId" class="form-control" autocomplete="off" required>
+                        </label>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn border border-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn bg-app-pry text-white" form="subjectForm">Unirse</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 
     <div class="content">
-        <button class="btn-add" data-toggle="modal" data-target="#subjectModal">
-            <span class="material-icons">add_circle</span>
-        </button>
-        <section class="cards m-3">
+        <section class="cards-classes m-3">
         </section>
+        <section class="cards-subject m-3 d-none">
+        </section>
+        <section class="task m-3 d-none">
+        </section>
+    </div>
+
+    <button class="btn-add" data-toggle="modal" data-target="#subjectModal">
+        <span class="material-icons">add_circle</span>
+    </button>
+
+    <div class="fixed-bottom d-none">
+        <button class="btn bg-app-pry btn-task mb-3" data-toggle="modal" data-target="#taskModal">
+            <span class="material-icons col-form-label">add</span>
+            <span class="col-form-label">Añadir Tarea</span>
+        </button>
     </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js"></script>
@@ -77,8 +123,8 @@
     <script src="scripts/firebase-config.js"></script>
     <script src="scripts/jquery-3.5.1.slim.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/ui.js"></script>
     <script src="scripts/db.js"></script>
+    <script src="scripts/ui.js"></script>
     <script src="scripts/script.js"></script>
 
 </body>

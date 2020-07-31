@@ -9,6 +9,30 @@ db.enablePersistence()
         }
     });
 
+// cuando el alumno se inscribe a una materia
+// se actualiza la vista
+db.collection('alumno').onSnapshot(snaphot => {
+    snaphot.docChanges().forEach(change => {
+        
+        if (change.type === 'added') {
+            paintSubject(change.doc.id, change.doc.data());
+        }
+
+    });
+});
+
+db.collection('tareas').onSnapshot(snaphot => {
+    snaphot.docChanges().forEach(change => {
+        
+        if (change.type === 'added') {
+            paintTask(change.doc.id, change.doc.data());
+        }
+
+    });
+});
+
+// Datos para poder inscribirse a una materia correctamente
+
 let materiasId = [];
 let materiasData = [];
 
@@ -27,20 +51,7 @@ db.collection('alumno').get().then(snaphot => {
     });
 });
 
-
-// cuando el alumno se inscribe a una materia
-// se actualiza la vista
-db.collection('alumno').onSnapshot(snaphot => {
-    snaphot.docChanges().forEach(change => {
-        
-        if (change.type === 'added') {
-            paintSubject(change.doc.data());
-        }
-
-    });
-});
-
-// boton para inscribirse a materias como alumno
+// boton para inscribirse a materias
 $('#subjectForm').on('submit', e => {
 
     const subjectId = $('#subjectId').val();
@@ -65,11 +76,20 @@ $('#subjectForm').on('submit', e => {
         });
 
         $('#subjectModal').modal('hide');
+        $('#subjectId').val('');
 
     } else {
         console.log('No existe el codigo de materia');
     }
-            
 
+});
 
+$('.cards-subject').on('click', '.card-header', e => {
+    db.collection('tareas').doc(e.target.id)
+        .get()
+        .then(doc => {
+            openTask(doc.data());
+        }).catch(error => {
+            console.log("Error getting document:", error);
+        });;
 });
