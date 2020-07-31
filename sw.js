@@ -1,18 +1,21 @@
 importScripts('scripts/sw-utils.js');
+importScripts('https://www.gstatic.com/firebasejs/7.16.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/7.16.0/firebase-messaging.js');
 
 const STATIC_CACHE      = 'static-v1';
 const DYNAMIC_CACHE     = 'dynamic-v1';
 const INMUTABLE_CACHE   = 'inmutable-v1';
 
 const APP_SHELL_STATIC = [
+    // '/',
     'index.html',
     'styles/style.css',
     'scripts/script.js',
     'scripts/ui.js',
     'scripts/db.js',
     'scripts/firebase-config.js',
-    'images/favicon.ico',
     'scripts/sw-utils.js',
+    'images/favicon.ico',
     'images/icons/android-icon-36.png',
     'images/icons/android-icon-48.png',
     'images/icons/android-icon-72.png',
@@ -74,3 +77,17 @@ self.addEventListener('fetch', e => {
     }
 
 });
+
+// sw para notificaciones
+
+firebase.initializeApp({
+    apiKey: "AIzaSyA4qxWI-E5SN9gmKR24XPeJjEeGYjOe9a8",
+    authDomain: "awa-pwa.firebaseapp.com",
+    databaseURL: "https://awa-pwa.firebaseio.com",
+    projectId: "awa-pwa",
+    storageBucket: "awa-pwa.appspot.com",
+    messagingSenderId: "863488985570",
+    appId: "1:863488985570:web:58057f5214a133b85191bb"
+});
+
+const messaging = firebase.messaging();
