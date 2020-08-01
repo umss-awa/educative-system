@@ -15,12 +15,12 @@ navigator.serviceWorker.ready.then(registration => {
 
     messaging.requestPermission().then(() => {
 
-        console.log('Tienes permiso');
+        console.log('Usted Puede Recivir Notificaciones');
         return messaging.getToken();
 
     }).then(token => {
 
-        console.log(token);
+        console.log('Token:', token);
 
     }).catch(error => {
 
@@ -28,4 +28,8 @@ navigator.serviceWorker.ready.then(registration => {
 
     });
 
+});
+
+messaging.onMessage(payload => {
+    console.log('Mensaje Recivido:', payload);
 });

@@ -115,7 +115,7 @@ $('#tasks').on('click', () => {
     $('.navbar-collapse').collapse('hide');
 });
 
-function openTask(data) {
+function openTask(id, data) {
     $('.task').remove();
     $('.content').append('<section class="task m-3 d-none"></section>');
     $('.cards-subject-selected').addClass('d-none');
@@ -127,6 +127,7 @@ function openTask(data) {
 
     let task = `
     <h3 class="mb-3 text-center">${data.titulo}</h3>
+    <input type="hidden" id="idTask" value="${id}">
     <h6 class="mb-3">Fecha de entrega:
         ${data.limite.toDate().toDateString()}
         ${data.limite.toDate().toLocaleTimeString('it-IT')}
@@ -141,16 +142,32 @@ function openTask(data) {
 let tasks = [];
 
 $('#btnSubmitFile').on('click', () => {
-    tasks.forEach(task => {
-        console.log(task);
-    });
+    if (tasks.length > 0) {
+        if (navigator.onLine) {
+            console.log('Se entregaron los siguientes archivos:');
+            tasks.forEach(task => {
+                console.log(task);
+            });
+            updateDatesTask($('#idTask').val());
+            $('#taskModal').modal('hide');
+            deleteModalTask();
+        }else {
+            console.log('Usted no puede enviar archivos si no tiene conexion a internet.');
+        }
+    } else {
+        console.log('No hay archivos que enviar.');
+    }
 });
 
-$('#deleteAllTasks').on('click', () => {
+function deleteModalTask() {
     tasks = [];
     $('.content-task').remove();
     $('#uploadFileInput').replaceWith($('#uploadFileInput').val('').clone(true));
     $('.modal-body').append('<div class="content-task mt-3"></div>');
+}
+
+$('#deleteAllTasks').on('click', () => {
+    deleteModalTask();
 });
 
 $('#uploadFileInput').on('change', e => {

@@ -88,7 +88,7 @@ $('.cards-subject').on('click', '.card-header', e => {
     db.collection('tareas').doc(e.target.id)
         .get()
         .then(doc => {
-            openTask(doc.data());
+            openTask(doc.id, doc.data());
         }).catch(error => {
             console.log('Error al obtener datos:', error);
         });;
@@ -115,8 +115,16 @@ $('.cards-subject-selected').on('click', '.card-selected .card .card-header', e 
     db.collection('tareas').doc(e.target.id)
         .get()
         .then(doc => {
-            openTask(doc.data());
+            openTask(doc.id, doc.data());
         }).catch(error => {
             console.log('Error al obtener datos:', error);
         });;
 });
+
+function updateDatesTask(id) {
+    db.collection('tareas').doc(id).update({
+        'entregado': true
+    }).then(() => {
+        $('.fixed-bottom .btn').prop('disabled', true);
+    });
+}

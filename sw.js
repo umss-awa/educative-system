@@ -91,3 +91,13 @@ firebase.initializeApp({
 });
 
 const messaging = firebase.messaging();
+
+messaging.setBackgroundMessageHandler(payload => {
+    
+    const title = 'Notificación de Fondo';
+    const options = {
+      body: payload.data.status
+    };
+  
+    return self.registration.showNotification(title, options);
+});
