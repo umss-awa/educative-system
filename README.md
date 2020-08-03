@@ -1,10 +1,10 @@
 # Proyecto de AWA
+Proyecto para experimentar las ventajas y funcionalidades que se puede tener una aplicacion web progresiva.
 ## Aplicación Educativa
-
 ### Requisitos para ejecutar PWA:
 Tener instalado nodejs.
 
-Instalar el paquete de nodejs:
+Instalar el siguiente paquete de nodejs:
 ```
 npm install --global http-server
 ```
@@ -17,7 +17,29 @@ En el navegador en la url ingresar al localhost, con el puerto que le asigno el 
 ```
 localhost:8080
 ```
-### Notificaciones
+### Funcionalidades 
+
+Módulo donde se simula la seccion de estudiante en la aplicación, por lo que ya se tiene datos de las clases. 
+Para el estudiante se tienen las siguientes funcionalidades:
+#### 1. Inscribirse a una materia.
+
+Para inscribirse a una materia se debe presionar en el boton con simbolo más ubicado en la parte inferior derecha y se debe ingresar los siguientes codigos de materia :
+1. a2b1b2
+2. a3b1b2
+3. a4b1b2
+4. b3b1b2
+#### 2. Listar todas las tareas.
+
+Para listar todas las tareas se debe ingresar a la sección Tareas ubicado en la esquina superior derecha.
+#### 3. Listar tareas por materia.
+
+Se debe ingresar a la sección Materias y seleccionar una materia de la cual se quiere listar sus tareas.
+#### 4. Entregar tareas.
+
+Para entregar una tarea se debe ingresar a la tarea y en la parte inferior seleccionar el boton "Añadir tarea" para poder subir el archivo.
+Una vez entregada la tarea se inhabilita el boton "Añadir tarea".
+
+#### 5. Notificaciones
 
 Una vez conceda los permisos de notificación a la APP, en la consola
 se le asignara un token, copie el token en el apartado: 
