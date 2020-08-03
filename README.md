@@ -1,73 +1,57 @@
-# Inicio del Proyecto de AWA
+# Proyecto de AWA
+Proyecto para experimentar las ventajas y funcionalidades que se puede tener una aplicacion web progresiva.
 ## Aplicación Educativa
+### Requisitos para ejecutar PWA:
+Tener instalado nodejs.
 
-Una aplicación progresiva first-mobile para apoyar a profesores.
+Instalar el siguiente paquete de nodejs:
+```
+npm install --global http-server
+```
+Ingresar a la carpeta donde se encuentra el proyecto y ejecutar:
+```
+http-server
+```
+En el navegador en la url ingresar al localhost, con el puerto que le asigno el http-server:
 
-La orientación es la gente que puede acceder a un celular y tiene 
-capacidad baja de conexión a red (la conexión es lenta y además el costo es una limitación).
+```
+localhost:8080
+```
+### Funcionalidades 
 
-La aplicación debe manejar recursos, en orden de preferencia: Texto plano (100 KB), PDF(300 KB),
-Audio y Video (1 MB y/o una duración de 3 minutos). Los tamaños son referenciales para indicar 
-una ALERTA al profesor con respecto al recurso y su costo en conectividad.
+Módulo donde se simula la seccion de estudiante en la aplicación, por lo que ya se tiene datos de las clases. 
+Para el estudiante se tienen las siguientes funcionalidades:
+#### 1. Inscribirse a una materia.
 
-Hay tres tipos de usuario: Profesor, Estudiante, Padre de Familia
+Para inscribirse a una materia se debe presionar en el boton con simbolo más ubicado en la parte inferior derecha y se debe ingresar los siguientes codigos de materia :
+1. a2b1b2
+2. a3b1b2
+3. a4b1b2
+4. b3b1b2
+#### 2. Listar todas las tareas.
 
-**Profesor:** El profesor es el responsable de un curso. Puede subir recursos (archivos de audio, 
-video, texto, documentos), puede crear Actividades (Tarea, Cuestionario). Puede crear recursos
-de audio y video accediendo a las capacidades del dispositivo.
+Para listar todas las tareas se debe ingresar a la sección Tareas ubicado en la esquina superior derecha.
+#### 3. Listar tareas por materia.
 
-**Estudiante:** está registrado en un curso. Puede descargar/ver un 
-recurso. Puede completar una actividad (tarea o cuestionario).
+Se debe ingresar a la sección Materias y seleccionar una materia de la cual se quiere listar sus tareas.
+#### 4. Entregar tareas.
 
-**Padre de Familia:** puede ver el progreso del estudiante.
+Para entregar una tarea se debe ingresar a la tarea y en la parte inferior seleccionar el boton "Añadir tarea" para poder subir el archivo.
+Una vez entregada la tarea se inhabilita el boton "Añadir tarea".
 
-### Considera que:
+#### 5. Notificaciones
 
-* Un Profesor puede crear varios cursos y generar un código de registro que compartirá con sus estudiantes.
-* Un estudiante puede registrarse a varios cursos con el código que le proveyó su profesor.
-* Un padre de familia se registra con un código obtenido desde el estudiante.
+Una vez conceda los permisos de notificación a la APP, en la consola
+se le asignara un token, copie el token en el apartado: 
+```
+"to" : "Ingresa el Token que te aparece en consola"
+```
+Esto se encuentra en el archivo notification.txt, una ves termine este paso,
+copie todo el contenido del archivo notification.txt en su terminal, asegurese de tener
+conexión a internet.
 
-**Para registrarse en la plataforma:**
+Cuando ejecute el script ocurrida dos cosas:
+1. Si usted tiene la APP abierto y ademas es visible en su pantalla, solo mostrara el mensaje
+en consola.
+2. Si usted tiene la APP cerrada o no se encuetra visible, le llegara una notificación en pantalla.
 
-* Un profesor debe indicar: nombre completo, correo electrónico, nombre de usuario y contraseña.
-* Un estudiante debe indicar: nombre completo, correo electrónico(no obligatorio), nombre de usuario y contraseña.
-* Un padre debe indicar: nombre completo, correo electrónico(no obligatorio), nombre de usuario y contraseña.
-
-Cuando un usuario olvida contraseña, puede recuperarla por medio del correo electrónico, en el caso de 
-padres y estudiantes , el profesor puede responder a la solicitud de nueva contraseña para el estudiante 
-y el padre de familia, la notifica por otros canales distintos al email de forma manual.
-
-### Acerca del recurso:
-
-**Tiene un estado:** edición (el profesor está preparando el recurso y temporalmente guardado ), publicado
-(estudiantes pueden ver el recurso), visto (cuando está publicado y el estudiante lo descargó o miró)
-Tiene una fecha de publicación y una fecha de visto.
-
-**El recurso puede ser:** Texto plano, Documento (de preferencia PDF), Audio o Video.
-
-### Acerca de la Actividad:
-
-**Tiene un estado:** edición, publicado, entregado pendiente de revisión, entregado y revisado, 
-no entregado, entregado con retraso(significa también que esta pendiente de revisión).
-
-Tiene una fecha de publicación y una fecha límite de entrega (se admite entrega posterior 
-a la fecha límite y es con estado de retraso), y fecha real de entrega por parte del estudiantes.
-
-Tiene asociado un campo de texto para comentarios del profesor, esta es la retroalimentación a la actividad.
-
-**La actividad puede ser de dos tipos:** Tarea, Cuestionario.
-
-**La tarea tiene:** una descripción de lo que se espera que haga el estudiante.
-
-**El profesor indica un tipo de entrega:** Texto plano, archivo de documento (admite todos estos WORD/PDF/Texto plano), 
-Audio, Video. El profesor llena comentario/retroalimentación al estudiante. NO HAY CALIFICACIÓN. El estudiante
-puede tener un borrador de la tarea, la entrega se hace efectiva al cumplirse la fecha y la tarea ya no es editable.
-
-**El cuestionario tiene:** un conjunto de preguntas, las preguntas las prepara el profesor. Tiene un número de 
-intentos permitidos, puede tener un tiempo límite de realización (5 minutos, 15,minutos o más). El estudiante responde 
-las preguntas y el cuestionario es enviado por acción del estudiante o finalización del tiempo.
-
-**Las preguntas son de tres tipos:** selección simple (una respuesta correcta) , selección múltiple (marcar varias respuestas), 
-respuesta corta (el estudiante llena una entrada de texto de la cantidad de palabras que el profesor indique). Las de
-selección el profesor debe indicar además de la pregunta las respuestas correctas y una retroalimentación sugerida en
-caso de respuesta incorrecta. La retroalimentación/comentario es del total de intentos y el profesor la edita manualmente antes de enviar.
