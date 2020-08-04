@@ -17,6 +17,7 @@ En el navegador en la url ingresar al localhost, con el puerto que le asigno el 
 ```
 localhost:8080
 ```
+nota: En caso de que el navegador muestre un error "No se puede acceder a este sitio web" ponga: localhost:8080/index.html.
 ### Funcionalidades 
 
 Módulo donde se simula la seccion de estudiante en la aplicación, por lo que ya se tiene datos de las clases. 
